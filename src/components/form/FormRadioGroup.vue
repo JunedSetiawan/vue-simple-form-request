@@ -8,8 +8,10 @@
         :value="option"
         :checked="option === modelValue"
         @change="$emit('update:modelValue', option)"
+        :class="{ 'is-invalid': error }"
       />
       <label :for="option">{{ option }}</label>
+      <div v-if="error" class="invalid-feedback">{{ error }}</div>
     </div>
   </div>
 </template>
@@ -28,6 +30,10 @@ export default {
     options: {
       type: Array,
       required: true,
+    },
+    error: {
+      type: String,
+      default: "",
     },
   },
 };

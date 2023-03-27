@@ -6,7 +6,9 @@
       :id="label"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
+      :class="{ 'is-invalid': error }"
     />
+    <div class="invalid-feedback">{{ error }}</div>
   </div>
 </template>
 
@@ -21,6 +23,10 @@ export default {
     modelValue: {
       type: String,
       required: true,
+      default: "",
+    },
+    error: {
+      type: String,
       default: "",
     },
   },
