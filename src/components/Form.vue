@@ -21,7 +21,7 @@
         :options="cityOptions"
       />
       <FormCheckbox label="setuju untuk persyaratan " v-model="agreeToTerms" />
-      <button @click="submitForm" class="btn btn-primary mt-2">Submit</button>
+      <button :disabled="!agreeToTerms" @click="submitForm" class="btn btn-primary mt-2">Submit</button>
       <span class="text-secondary mt-2">* hasil bisa dilihat di console</span>
     </div>
   </div>
